@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container .title{
+            width: 400px;
+            height: 40px;
+            background-color: aqua;
+            text-align: center;
+            line-height: 40px;
+        }
+        .container .item{
+            width: 400px;
+            height: 60px;
+        }
+        .container .item img{
+            width: 50px;
+            height: 50px;
+            float: left;
+            margin: 5px 50px 5px 0;
+        }
+        .container .item a{
+            text-decoration:none;
+        }
+        .container .item input{
+            width: 80px;
+            
+        }
+        .container .item .del{
+            float: right;
+        }
+        .container .total{
+            background-color: bisque;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+          <my-cart></my-cart>
+        </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        var CartTitle = {
+            template:`<div class="title">我的商品</div>`
+        }
+        var CartList = {
+            template:`<div>
+                    <div class="item">
+                        <img src="img/a.jpg"/>
+                        <div class="name"></div>
+                        <div class="change">
+                            <a href="#">-</a>
+                            <input type="text" class="num">
+                            <a href="#">+</a>
+                        </div>
+                        <div class="del">x</div>
+                    </div>
+                    <div class="item">
+                        <img src="img/b.jpg"/>
+                        <div class="name"></div>
+                        <div class="change">
+                            <a href="#">-</a>
+                            <input type="text" class="num">
+                            <a href="#">+</a>
+                        </div>
+                        <div class="del">x</div>
+                    </div>
+                    <div class="item">
+                        <img src="img/c.jpg"/>
+                        <div class="name"></div>
+                        <div class="change">
+                            <a href="#">-</a>
+                            <input type="text" class="num">
+                            <a href="#">+</a>
+                        </div>
+                        <div class="del">x</div>
+                    </div>
+                    <div class="item">
+                        <img src="img/d.jpg"/>
+                        <div class="name"></div>
+                        <div class="change">
+                            <a href="#">-</a>
+                            <input type="text" class="num">
+                            <a href="#">+</a>
+                        </div>
+                        <div class="del">x</div>
+                    </div>
+                </div> `
+        }
+        var CartTotal = {
+            template:`<div class="total">
+                        <span>总价：123</span>
+                        <button>结算</button>
+                      </div> `
+        }
+        Vue.component('my-cart',{ 
+            template:`
+            <div calss='cart'>
+                <cart-title></cart-title>
+                <cart-list></cart-list>
+                <cart-total></cart-total>
+            </div>
+            `,
+            components:{
+                'cart-title':CartTitle,
+                'cart-list':CartList,
+                'cart-total':CartTotal
+            }
+        })
+        var vm = new Vue({
+            el:'#app',
+            data:{
+
+            }
+        })
+    
+    </script>
+</body>
+</html>
